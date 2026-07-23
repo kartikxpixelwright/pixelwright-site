@@ -1,82 +1,642 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8G94ETMM22"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8G94ETMM22');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixelwright | Funnels for Mumbai Real Estate</title>
+    <title>Pixelwright | Crafting Digital Excellence</title>
+    <!-- Google Fonts for Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #111; color: #fff; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        header { text-align: center; padding: 100px 20px; border-bottom: 1px solid #333; }
-        h1 { font-size: 3rem; margin-bottom: 20px; color: #fff; }
-        h2 { font-size: 2rem; color: #00d2ff; text-align: center; margin-top: 60px; }
-        .subheadline { font-size: 1.2rem; color: #aaa; margin-bottom: 40px; }
-        .social-proof { display: inline-block; background: #222; padding: 10px 20px; border-radius: 5px; font-size: 0.9rem; margin-bottom: 30px; border: 1px solid #444; }
-        
-        .grid { display: flex; gap: 20px; justify-content: space-between; margin-top: 40px; flex-wrap: wrap; }
-        .card { background: #1a1a1a; padding: 30px; border-radius: 8px; width: 30%; border: 1px solid #333; text-align: center; min-width: 250px; }
-        .card h3 { color: #00d2ff; }
-        
-        .process { text-align: center; margin: 60px 0; }
-        .process-step { margin: 20px 0; font-size: 1.2rem; }
-        
-        .cta-btn { display: inline-block; background: #25D366; color: #fff; padding: 15px 30px; text-decoration: none; font-size: 1.2rem; border-radius: 5px; font-weight: bold; margin-top: 20px; }
-        .cta-btn:hover { background: #1ebe5d; }
-        
-        footer { text-align: center; padding: 40px 20px; border-top: 1px solid #333; margin-top: 60px; color: #777; }
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0056FF;
+            --blue-glow: rgba(0, 86, 255, 0.6);
+            --dark-bg: #050505;
+            --dark-surface: #0f0f0f;
+            --dark-border: #1f1f1f;
+            --light-bg: #F8F7F3;
+            --light-surface: #ffffff;
+            --light-border: #eaeaea;
+        }
+
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body.theme-dark {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+        }
+
+        body.theme-light {
+            background-color: var(--light-bg);
+            color: #111111;
+        }
+
+        /* Navbar & Toggle */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+            transition: background 0.3s, border-bottom 0.3s;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        body.theme-dark .navbar {
+            background: rgba(5, 5, 5, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.theme-light .navbar {
+            background: rgba(248, 247, 243, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .logo {
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .toggle-container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            position: relative;
+            padding: 5px;
+            width: 280px;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.theme-light .toggle-container {
+            background: rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .toggle-bg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: calc(50% - 5px);
+            height: calc(100% - 10px);
+            background: var(--primary-blue);
+            border-radius: 30px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 12px rgba(0, 86, 255, 0.3);
+        }
+
+        .toggle-container[data-active="prod"] .toggle-bg {
+            transform: translateX(100%);
+        }
+
+        .toggle-option {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .toggle-option.active {
+            color: #fff !important;
+        }
+
+        body.theme-light .toggle-option {
+            color: #666;
+        }
+
+        /* View Containers */
+        .view-container {
+            padding-top: 120px;
+            opacity: 0;
+            display: none;
+            transition: opacity 0.4s ease;
+            min-height: 100vh;
+        }
+
+        /* --- PIXELWRIGHT MAIN (DARK) --- */
+        .hero-main {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-main h1 {
+            font-size: 4.5rem;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            font-weight: 800;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #0056FF, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-main p {
+            font-size: 1.25rem;
+            color: #999;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-glowing {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--primary-blue);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 0 20px var(--blue-glow);
+            transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+        }
+
+        .cta-glowing:hover {
+            box-shadow: 0 0 40px rgba(0, 86, 255, 0.8);
+            transform: translateY(-2px);
+            background: #004ce6;
+        }
+
+        .services-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .card {
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            padding: 48px 32px;
+            border-radius: 16px;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 86, 255, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .process-main {
+            text-align: center;
+            padding: 40px 24px 120px;
+        }
+
+        .process-main h2 {
+            font-size: 2.5rem;
+            margin-bottom: 48px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            padding: 32px 40px;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .arrow {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* --- PIXELWRIGHT PRODUCTIONS (LIGHT) --- */
+        .hero-prod {
+            padding: 100px 20px 80px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-prod h1 {
+            font-size: 5.5rem;
+            line-height: 1;
+            margin-bottom: 32px;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+        }
+
+        .text-blue {
+            color: var(--primary-blue);
+        }
+
+        .subheadline {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-solid, .btn-outline {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-solid {
+            background: var(--primary-blue);
+            color: #fff;
+            border: 2px solid var(--primary-blue);
+            box-shadow: 0 10px 20px rgba(0, 86, 255, 0.2);
+        }
+
+        .btn-solid:hover {
+            background: #004ce6;
+            border-color: #004ce6;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(0, 86, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #111;
+            border: 2px solid #111;
+        }
+
+        .btn-outline:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        .how-it-works-prod {
+            padding: 40px 24px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-it-works-prod h2 {
+            font-size: 2.2rem;
+            margin-bottom: 48px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .big-card {
+            background: var(--light-surface);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+            border: 1px solid var(--light-border);
+        }
+
+        .big-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            color: var(--primary-blue);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .big-card p {
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        .portfolio-prod {
+            padding: 0 24px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-section {
+            margin-bottom: 60px;
+        }
+
+        .portfolio-section h3 {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .video-grid {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 24px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .video-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-thumb {
+            scroll-snap-align: start;
+            background: #111;
+            border-radius: 16px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-thumb::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+        }
+
+        .video-thumb:hover {
+            transform: scale(1.02);
+        }
+
+        .play-btn {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            padding-left: 6px;
+            z-index: 2;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .video-thumb:hover .play-btn {
+            transform: scale(1.1);
+            background: var(--primary-blue);
+        }
+
+        .short-form .video-thumb {
+            width: 260px;
+            height: 460px;
+        }
+
+        .long-form .video-thumb {
+            width: 460px;
+            height: 260px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-main h1 { font-size: 3.5rem; }
+            .hero-prod h1 { font-size: 4rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .toggle-container {
+                width: 100%;
+                max-width: 320px;
+            }
+            .view-container {
+                padding-top: 150px;
+            }
+            .hero-main h1 { font-size: 2.8rem; }
+            .hero-prod h1 { font-size: 3.2rem; }
+            .process-main .steps { flex-direction: column; }
+            .step { width: 100%; }
+            .arrow { transform: rotate(90deg); margin: 10px 0; }
+            .subheadline { font-size: 1.1rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn-solid, .btn-outline { width: 100%; text-align: center; }
+            
+            .short-form .video-thumb { width: 220px; height: 390px; }
+            .long-form .video-thumb { width: 320px; height: 180px; }
+        }
     </style>
 </head>
-<body>
+<body class="theme-dark">
 
-    <header>
-        <div class="container">
-            <div class="social-proof">Currently onboarding our founding batch of clients</div>
-            <h1>We Build Funnels That Print Money for Mumbai Real Estate</h1>
-            <p class="subheadline">Stop wasting ad spend on portal listings. Capture your own leads.</p>
-            <a href="https://wa.me/+918928182757?text=Hi,%20I'm%20interested%20in%20a%20landing%20page%20for%20my%20property" class="cta-btn" target="_blank">Book a Free Strategy Call</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="logo-pixelwright.png" alt="Pixelwright Logo" class="logo">
+            <div class="toggle-container" id="themeToggle" data-active="main">
+                <div class="toggle-bg"></div>
+                <div class="toggle-option active" data-theme="main">Pixelwright Main</div>
+                <div class="toggle-option" data-theme="prod">Productions</div>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="container">
-        <h2>What We Do</h2>
-        <div class="grid">
+    <!-- CONTAINER 1: PIXELWRIGHT MAIN -->
+    <main id="mainContainer" class="view-container">
+        <!-- Hero Section -->
+        <section class="hero-main">
+            <h1>We Build Funnels That <span class="highlight">Print Money</span> for Mumbai Real Estate.</h1>
+            <p>Aggressive, high-converting systems designed specifically to fill your pipeline with qualified property buyers.</p>
+            <a href="#" class="cta-glowing">Start Your Lead Generation</a>
+        </section>
+
+        <!-- What We Do -->
+        <section class="services-main">
             <div class="card">
                 <h3>Landing Pages</h3>
-                <p>High-converting, mobile-optimized pages designed exclusively for real estate.</p>
+                <p>Lightning-fast, mobile-optimized pages engineered with one goal: turning raw clicks into qualified site visits.</p>
             </div>
             <div class="card">
                 <h3>Lead Capture Funnels</h3>
-                <p>Seamless forms that push hot buyer inquiries directly to your phone.</p>
+                <p>Automated, frictionless systems to seamlessly qualify high-net-worth buyers and book appointments instantly.</p>
             </div>
             <div class="card">
                 <h3>Data & Analytics</h3>
-                <p>Track exactly where your leads are coming from and what they want.</p>
+                <p>Track every penny. Know exactly where your highest quality leads come from and scale what works.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="container process">
-        <h2>How It Works</h2>
-        <div class="process-step"><strong>Step 1:</strong> You Brief Us on the Property</div>
-        <div class="process-step"><strong>Step 2:</strong> We Build the Funnel in 72 Hrs</div>
-        <div class="process-step"><strong>Step 3:</strong> You Get Direct Leads</div>
-        
-        <br>
-        <a href="https://wa.me/+918928182757?text=Hi,%20I'm%20interested%20in%20a%20landing%20page%20for%20my%20property" class="cta-btn" target="_blank">Start the Process</a>
-    </section>
+        <!-- Process -->
+        <section class="process-main">
+            <h2>The Process</h2>
+            <div class="steps">
+                <div class="step">1. You Brief Us</div>
+                <div class="arrow">→</div>
+                <div class="step">2. We Build in 72 Hrs</div>
+                <div class="arrow">→</div>
+                <div class="step">3. You Get Leads</div>
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 Pixelwright. All rights reserved.</p>
-    </footer>
+    <!-- CONTAINER 2: PIXELWRIGHT PRODUCTIONS -->
+    <main id="prodContainer" class="view-container">
+        <!-- Hero Section -->
+        <section class="hero-prod">
+            <h1>UNLOCK YOUR <span class="text-blue">BRAND</span></h1>
+            <p class="subheadline">Turn your expertise into a magnetic online presence with strategic video content that boosts your visibility, earns trust, and positions you as the go-to authority in your industry.</p>
+            <div class="btn-group">
+                <a href="#" class="btn-solid">START YOUR JOURNEY</a>
+                <a href="#" class="btn-outline">VIEW OUR WORK</a>
+            </div>
+        </section>
 
+        <!-- How it works -->
+        <section class="how-it-works-prod">
+            <h2>HOW IT WORKS: From your raw ideas to content that grows your brand.</h2>
+            <div class="big-card">
+                <h3>YOU RECORD, WE HANDLE THE REST.</h3>
+                <p>Just talk to the camera. We handle the heavy lifting: cutting, color grading, captivating captions, and algorithm-friendly distribution.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section class="portfolio-prod">
+            <div class="portfolio-section">
+                <h3>SHORT FORM STYLES</h3>
+                <div class="video-grid short-form">
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                </div>
+            </div>
+            <div class="portfolio-section">
+                <h3>LONG FORM STYLES</h3>
+                <div class="video-grid long-form">
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleContainer = document.getElementById('themeToggle');
+            const options = document.querySelectorAll('.toggle-option');
+            const body = document.body;
+            const mainView = document.getElementById('mainContainer');
+            const prodView = document.getElementById('prodContainer');
+
+            // Initialize App State
+            mainView.style.display = 'block';
+            setTimeout(() => {
+                mainView.style.opacity = '1';
+            }, 50);
+
+            // Handle Toggle Switch
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const theme = option.getAttribute('data-theme');
+                    if (toggleContainer.getAttribute('data-active') === theme) return; // Prevent duplicate clicks
+
+                    // 1. Update UI Toggle State
+                    toggleContainer.setAttribute('data-active', theme);
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+
+                    // 2. Identify Outgoing and Incoming Views
+                    const viewOut = theme === 'main' ? prodView : mainView;
+                    const viewIn = theme === 'main' ? mainView : prodView;
+
+                    // 3. Switch Body Theme (Handles colors & backgrounds)
+                    body.className = theme === 'main' ? 'theme-dark' : 'theme-light';
+
+                    // 4. Smooth View Transition
+                    viewOut.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        viewOut.style.display = 'none';
+                        viewIn.style.display = 'block';
+                        
+                        // Small delay allows the DOM to register display:block before fading in
+                        setTimeout(() => {
+                            viewIn.style.opacity = '1';
+                        }, 50);
+                        
+                    }, 400); // Matches CSS opacity transition time
+                });
+            });
+        });
+    </script>
 </body>
 </html>
