@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixelwright | Crafting Digital Excellence</title>
+    <title>Pixelwright | Digital Marketing & Production House</title>
     <!-- Google Fonts for Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,20 +76,47 @@
             padding: 0 24px;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .brand-name {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            color: var(--primary-blue);
+        }
+
         .toggle-container {
             display: flex;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 40px;
             position: relative;
             padding: 5px;
-            width: 320px;
+            width: 380px;
             justify-content: space-between;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 86, 255, 0.1);
         }
 
         body.theme-light .toggle-container {
             background: rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .toggle-bg {
@@ -99,9 +126,9 @@
             width: calc(50% - 5px);
             height: calc(100% - 10px);
             background: var(--primary-blue);
-            border-radius: 30px;
+            border-radius: 32px;
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 4px 12px rgba(0, 86, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 86, 255, 0.4);
         }
 
         .toggle-container[data-active="prod"] .toggle-bg {
@@ -113,13 +140,14 @@
             z-index: 2;
             flex: 1;
             text-align: center;
-            padding: 10px 0;
+            padding: 12px 16px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             color: #888;
-            transition: color 0.3s;
-            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
         }
 
         .toggle-option.active {
@@ -128,6 +156,10 @@
 
         body.theme-light .toggle-option {
             color: #666;
+        }
+
+        body.theme-light .toggle-option.active {
+            color: #fff !important;
         }
 
         /* View Containers */
@@ -139,7 +171,7 @@
             min-height: 100vh;
         }
 
-        /* --- PIXELWRIGHT MAIN (DARK) --- */
+        /* --- PIXELWRIGHT MARKETING (DARK) --- */
         .hero-main {
             text-align: center;
             padding: 80px 20px 60px;
@@ -159,6 +191,7 @@
             background: linear-gradient(90deg, #0056FF, #00d2ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-main p {
@@ -168,6 +201,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         .cta-glowing {
@@ -433,6 +467,7 @@
         @media (max-width: 900px) {
             .hero-main h1 { font-size: 3.5rem; }
             .hero-prod h1 { font-size: 4rem; }
+            .toggle-container { width: 320px; }
         }
 
         @media (max-width: 768px) {
@@ -442,7 +477,7 @@
             }
             .toggle-container {
                 width: 100%;
-                max-width: 320px;
+                max-width: 340px;
             }
             .view-container {
                 padding-top: 150px;
@@ -458,6 +493,10 @@
             
             .short-form .video-thumb { width: 220px; height: 390px; }
             .long-form .video-thumb { width: 320px; height: 180px; }
+            .toggle-option {
+                font-size: 0.75rem;
+                padding: 10px 12px;
+            }
         }
     </style>
 </head>
@@ -465,49 +504,63 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <img src="logo.png" alt="Pixelwright Logo" style="height: 40px; width: auto;">
+            <!-- Logo with Brand Name -->
+            <div class="logo-container">
+                <div class="logo">
+                    <!-- SVG Logo (Replace with your actual logo) -->
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="35" height="35" fill="#0056FF" rx="4"/>
+                        <rect x="55" y="10" width="35" height="35" fill="#00d2ff" rx="4"/>
+                        <rect x="10" y="55" width="35" height="35" fill="#00d2ff" rx="4"/>
+                        <rect x="55" y="55" width="35" height="35" fill="#0056FF" rx="4"/>
+                    </svg>
+                </div>
+                <span class="brand-name">PIXELWRIGHT</span>
+            </div>
+
+            <!-- Toggle Switch -->
             <div class="toggle-container" id="themeToggle" data-active="main">
                 <div class="toggle-bg"></div>
-                <div class="toggle-option active" data-theme="main">Pixelwright</div>
-                <div class="toggle-option" data-theme="prod">Pixelwright Production</div>
+                <div class="toggle-option active" data-theme="main">Marketing</div>
+                <div class="toggle-option" data-theme="prod">Productions</div>
             </div>
         </div>
     </nav>
 
-    <!-- CONTAINER 1: PIXELWRIGHT MAIN -->
+    <!-- CONTAINER 1: PIXELWRIGHT MARKETING -->
     <main id="mainContainer" class="view-container">
         <!-- Hero Section -->
         <section class="hero-main">
-            <h1>We Build High-Converting Funnels That <span class="highlight">Scale Your Business</span>.</h1>
-            <p>Aggressive, high-performance systems engineered to dominate your market, generate qualified leads, and maximize your ROI for elite digital growth.</p>
-            <a href="#" class="cta-glowing">Start Your Lead Generation</a>
+            <h1>Dominate Your Market with <span class="highlight">Performance Marketing</span>.</h1>
+            <p>Meta ads, lead capture funnels, and data-driven strategies engineered to scale your business. We turn competitors' customers into your leads, and leads into loyal clients.</p>
+            <a href="YOUR_CALENDAR_LINK_HERE" class="cta-glowing" target="_blank">Schedule Your Strategy Call</a>
         </section>
 
         <!-- What We Do -->
         <section class="services-main">
             <div class="card">
-                <h3>Landing Pages</h3>
-                <p>Lightning-fast, mobile-optimized pages engineered with one goal: turning raw clicks into qualified site visits.</p>
+                <h3>Meta Ads & Performance Marketing</h3>
+                <p>Precision-targeted campaigns on Facebook and Instagram that reach your ideal customers at scale. We optimize every dollar for maximum ROI and qualified conversions.</p>
             </div>
             <div class="card">
                 <h3>Lead Capture Funnels</h3>
-                <p>Automated, frictionless systems to seamlessly qualify high-net-worth buyers and book appointments instantly.</p>
+                <p>Automated, high-converting funnels that qualify prospects, book appointments, and nurture relationships. Built for B2B and high-ticket services.</p>
             </div>
             <div class="card">
                 <h3>Data & Analytics</h3>
-                <p>Track every penny. Know exactly where your highest quality leads come from and scale what works.</p>
+                <p>Full transparency. Real-time dashboards showing cost per lead, conversion rates, and ROI. Know exactly what works and scale it relentlessly.</p>
             </div>
         </section>
 
         <!-- Process -->
         <section class="process-main">
-            <h2>The Process</h2>
+            <h2>Our Process</h2>
             <div class="steps">
-                <div class="step">1. You Brief Us</div>
+                <div class="step">1. Discovery & Analysis</div>
                 <div class="arrow">→</div>
-                <div class="step">2. We Build in 72 Hrs</div>
+                <div class="step">2. Campaign Build & Launch</div>
                 <div class="arrow">→</div>
-                <div class="step">3. You Get Leads</div>
+                <div class="step">3. Optimize & Scale</div>
             </div>
         </section>
     </main>
@@ -517,26 +570,26 @@
         <!-- Hero Section -->
         <section class="hero-prod">
             <h1>UNLOCK YOUR <span class="text-blue">BRAND</span></h1>
-            <p class="subheadline">Turn your expertise into a magnetic online presence with strategic video content that boosts your visibility, earns trust, and positions you as the go-to authority in your industry.</p>
+            <p class="subheadline">Strategic video content that positions you as an authority, boosts engagement, and drives conversions. From concept to viral-ready production.</p>
             <div class="btn-group">
-                <a href="#" class="btn-solid">START YOUR JOURNEY</a>
-                <a href="#" class="btn-outline">VIEW OUR WORK</a>
+                <a href="YOUR_CALENDAR_LINK_HERE" class="btn-solid" target="_blank">Book A Production</a>
+                <a href="#portfolio" class="btn-outline">View Our Work</a>
             </div>
         </section>
 
         <!-- How it works -->
         <section class="how-it-works-prod">
-            <h2>HOW IT WORKS: From your raw ideas to content that grows your brand.</h2>
+            <h2>HOW IT WORKS: From raw ideas to content that converts.</h2>
             <div class="big-card">
-                <h3>YOU RECORD, WE HANDLE THE REST.</h3>
-                <p>Just talk to the camera. We handle the heavy lifting: cutting, color grading, captivating captions, and algorithm-friendly distribution.</p>
+                <h3>YOU HAVE THE IDEAS. WE HANDLE THE EXECUTION.</h3>
+                <p>We create, shoot, edit, and optimize strategic video content that grows your audience and your bottom line. Multi-platform distribution included.</p>
             </div>
         </section>
 
         <!-- Portfolio -->
-        <section class="portfolio-prod">
+        <section class="portfolio-prod" id="portfolio">
             <div class="portfolio-section">
-                <h3>SHORT FORM STYLES</h3>
+                <h3>SHORT FORM CONTENT</h3>
                 <div class="video-grid short-form">
                     <div class="video-thumb">
                         <video controls preload="metadata">
@@ -571,7 +624,7 @@
                 </div>
             </div>
             <div class="portfolio-section">
-                <h3>LONG FORM STYLES</h3>
+                <h3>LONG FORM CONTENT</h3>
                 <div class="video-grid long-form">
                     <div class="video-thumb">
                         <video controls preload="metadata">
@@ -614,7 +667,7 @@
             options.forEach(option => {
                 option.addEventListener('click', () => {
                     const theme = option.getAttribute('data-theme');
-                    if (toggleContainer.getAttribute('data-active') === theme) return; // Prevent duplicate clicks
+                    if (toggleContainer.getAttribute('data-active') === theme) return;
 
                     // 1. Update UI Toggle State
                     toggleContainer.setAttribute('data-active', theme);
@@ -643,12 +696,11 @@
                         viewOut.style.display = 'none';
                         viewIn.style.display = 'block';
                         
-                        // Small delay allows the DOM to register display:block before fading in
                         setTimeout(() => {
                             viewIn.style.opacity = '1';
                         }, 50);
                         
-                    }, 400); // Matches CSS opacity transition time
+                    }, 400);
                 });
             });
         });
