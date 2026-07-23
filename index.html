@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixelwright | Digital Marketing & Production House</title>
+    <title>Pixelwright | Elite Digital Marketing & Production</title>
     <!-- Google Fonts for Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,19 +80,31 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+        }
+
+        .logo-container:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .logo-container:active {
+            transform: scale(0.98);
         }
 
         .logo {
-            height: 40px;
-            width: 40px;
+            height: 50px;
+            width: auto;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .logo svg {
-            width: 100%;
+        .logo img {
             height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .brand-name {
@@ -175,7 +187,7 @@
         .hero-main {
             text-align: center;
             padding: 80px 20px 60px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -198,10 +210,11 @@
             font-size: 1.25rem;
             color: #999;
             margin-bottom: 48px;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
         .cta-glowing {
@@ -225,74 +238,89 @@
 
         .services-main {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 24px 80px;
+            padding: 80px 24px;
         }
 
         .card {
             background: var(--dark-surface);
             border: 1px solid var(--dark-border);
-            padding: 48px 32px;
+            padding: 48px 40px;
             border-radius: 16px;
             transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             border-color: var(--primary-blue);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 86, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 86, 255, 0.15);
         }
 
         .card h3 {
             font-size: 1.5rem;
             margin-bottom: 16px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         .card p {
             color: #aaa;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 1.05rem;
+            font-weight: 300;
+            flex-grow: 1;
         }
 
-        .process-main {
+        .outcome-main {
             text-align: center;
-            padding: 40px 24px 120px;
+            padding: 80px 24px;
+            background: linear-gradient(135deg, rgba(0, 86, 255, 0.05) 0%, rgba(0, 210, 255, 0.02) 100%);
         }
 
-        .process-main h2 {
-            font-size: 2.5rem;
-            margin-bottom: 48px;
+        .outcome-main h2 {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
             font-weight: 800;
             letter-spacing: -0.02em;
         }
 
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            max-width: 1000px;
+        .outcomes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .step {
-            background: var(--dark-surface);
-            border: 1px solid var(--dark-border);
-            padding: 32px 40px;
-            border-radius: 12px;
-            font-size: 1.25rem;
-            font-weight: 600;
-            flex: 1;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .outcome-item {
+            padding: 40px 32px;
+            border-left: 3px solid var(--primary-blue);
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .arrow {
+        .outcome-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(8px);
+        }
+
+        .outcome-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             color: var(--primary-blue);
-            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .outcome-item p {
+            color: #bbb;
+            line-height: 1.7;
             font-weight: 300;
         }
 
@@ -318,10 +346,11 @@
 
         .subheadline {
             font-size: 1.3rem;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #555;
             max-width: 800px;
             margin: 0 auto 50px;
+            font-weight: 300;
         }
 
         .btn-group {
@@ -366,7 +395,7 @@
         }
 
         .how-it-works-prod {
-            padding: 40px 24px 100px;
+            padding: 60px 24px 80px;
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
@@ -398,10 +427,11 @@
         .big-card p {
             font-size: 1.25rem;
             color: #555;
+            line-height: 1.8;
         }
 
         .portfolio-prod {
-            padding: 0 24px 100px;
+            padding: 40px 24px 100px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -468,6 +498,7 @@
             .hero-main h1 { font-size: 3.5rem; }
             .hero-prod h1 { font-size: 4rem; }
             .toggle-container { width: 320px; }
+            .outcome-main h2 { font-size: 2.2rem; }
         }
 
         @media (max-width: 768px) {
@@ -484,9 +515,7 @@
             }
             .hero-main h1 { font-size: 2.8rem; }
             .hero-prod h1 { font-size: 3.2rem; }
-            .process-main .steps { flex-direction: column; }
-            .step { width: 100%; }
-            .arrow { transform: rotate(90deg); margin: 10px 0; }
+            .outcome-main h2 { font-size: 2rem; }
             .subheadline { font-size: 1.1rem; }
             .btn-group { flex-direction: column; width: 100%; }
             .btn-solid, .btn-outline { width: 100%; text-align: center; }
@@ -497,6 +526,9 @@
                 font-size: 0.75rem;
                 padding: 10px 12px;
             }
+            .logo {
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -504,18 +536,11 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo with Brand Name -->
-            <div class="logo-container">
+            <!-- Logo with Brand Name - Clickable to Refresh -->
+            <div class="logo-container" onclick="window.location.reload();" title="Refresh page">
                 <div class="logo">
-                    <!-- SVG Logo (Replace with your actual logo) -->
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="10" width="35" height="35" fill="#0056FF" rx="4"/>
-                        <rect x="55" y="10" width="35" height="35" fill="#00d2ff" rx="4"/>
-                        <rect x="10" y="55" width="35" height="35" fill="#00d2ff" rx="4"/>
-                        <rect x="55" y="55" width="35" height="35" fill="#0056FF" rx="4"/>
-                    </svg>
+                    <img src="logo-pixelwright copy.png" alt="Pixelwright Logo">
                 </div>
-                <span class="brand-name">PIXELWRIGHT</span>
             </div>
 
             <!-- Toggle Switch -->
@@ -531,36 +556,47 @@
     <main id="mainContainer" class="view-container">
         <!-- Hero Section -->
         <section class="hero-main">
-            <h1>Dominate Your Market with <span class="highlight">Performance Marketing</span>.</h1>
-            <p>Meta ads, lead capture funnels, and data-driven strategies engineered to scale your business. We turn competitors' customers into your leads, and leads into loyal clients.</p>
-            <a href="YOUR_CALENDAR_LINK_HERE" class="cta-glowing" target="_blank">Schedule Your Strategy Call</a>
+            <h1>Cut Through the Noise. <span class="highlight">Own Your Market.</span></h1>
+            <p>Elite brands demand elite results. We're not here to talk about ads—we're here to turn your audience into revenue. Precision targeting, flawless execution, measurable returns.</p>
+            <a href="YOUR_CALENDAR_LINK_HERE" class="cta-glowing" target="_blank">Claim Your Strategy Session</a>
         </section>
 
-        <!-- What We Do -->
+        <!-- Services -->
         <section class="services-main">
             <div class="card">
-                <h3>Meta Ads & Performance Marketing</h3>
-                <p>Precision-targeted campaigns on Facebook and Instagram that reach your ideal customers at scale. We optimize every dollar for maximum ROI and qualified conversions.</p>
+                <h3>Performance at Scale</h3>
+                <p>Strategic campaigns across Meta platforms designed for high-intent prospects. We don't chase vanity metrics—we optimize for conversions and sustainable growth.</p>
             </div>
             <div class="card">
-                <h3>Lead Capture Funnels</h3>
-                <p>Automated, high-converting funnels that qualify prospects, book appointments, and nurture relationships. Built for B2B and high-ticket services.</p>
+                <h3>Intelligent Lead Systems</h3>
+                <p>Custom-engineered funnels that qualify, nurture, and convert. From first impression to closed deal, every touchpoint is architected for maximum velocity.</p>
             </div>
             <div class="card">
-                <h3>Data & Analytics</h3>
-                <p>Full transparency. Real-time dashboards showing cost per lead, conversion rates, and ROI. Know exactly what works and scale it relentlessly.</p>
+                <h3>Complete Transparency</h3>
+                <p>Real-time insights into every metric that matters. You'll know exactly what's working, where your highest-value customers come from, and where to accelerate.</p>
             </div>
         </section>
 
-        <!-- Process -->
-        <section class="process-main">
-            <h2>Our Process</h2>
-            <div class="steps">
-                <div class="step">1. Discovery & Analysis</div>
-                <div class="arrow">→</div>
-                <div class="step">2. Campaign Build & Launch</div>
-                <div class="arrow">→</div>
-                <div class="step">3. Optimize & Scale</div>
+        <!-- Outcomes -->
+        <section class="outcome-main">
+            <h2>What Elite Brands Achieve</h2>
+            <div class="outcomes">
+                <div class="outcome-item">
+                    <h4>Revenue Growth</h4>
+                    <p>Predictable, scalable revenue streams from premium customers who actually want your services.</p>
+                </div>
+                <div class="outcome-item">
+                    <h4>Market Dominance</h4>
+                    <p>Capture market share from competitors while building unshakeable brand authority in your space.</p>
+                </div>
+                <div class="outcome-item">
+                    <h4>Data Superiority</h4>
+                    <p>Clear intelligence on your best customers, enabling smarter decisions and faster scaling.</p>
+                </div>
+                <div class="outcome-item">
+                    <h4>Time Back</h4>
+                    <p>Your team focuses on core business. We handle the complexity of growth infrastructure.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -569,27 +605,27 @@
     <main id="prodContainer" class="view-container">
         <!-- Hero Section -->
         <section class="hero-prod">
-            <h1>UNLOCK YOUR <span class="text-blue">BRAND</span></h1>
-            <p class="subheadline">Strategic video content that positions you as an authority, boosts engagement, and drives conversions. From concept to viral-ready production.</p>
+            <h1>Command Attention. <span class="text-blue">Build Authority.</span></h1>
+            <p class="subheadline">Strategic video content that repositions you as the premium choice in your category. From concept to multi-platform distribution—we handle it all.</p>
             <div class="btn-group">
-                <a href="YOUR_CALENDAR_LINK_HERE" class="btn-solid" target="_blank">Book A Production</a>
-                <a href="#portfolio" class="btn-outline">View Our Work</a>
+                <a href="YOUR_CALENDAR_LINK_HERE" class="btn-solid" target="_blank">Discuss Your Vision</a>
+                <a href="#portfolio" class="btn-outline">View Portfolio</a>
             </div>
         </section>
 
         <!-- How it works -->
         <section class="how-it-works-prod">
-            <h2>HOW IT WORKS: From raw ideas to content that converts.</h2>
+            <h2>From Vision to Impact</h2>
             <div class="big-card">
-                <h3>YOU HAVE THE IDEAS. WE HANDLE THE EXECUTION.</h3>
-                <p>We create, shoot, edit, and optimize strategic video content that grows your audience and your bottom line. Multi-platform distribution included.</p>
+                <h3>Strategy-First Production</h3>
+                <p>We don't just make videos—we craft content systems designed to elevate your brand, engage your audience, and drive measurable business results.</p>
             </div>
         </section>
 
         <!-- Portfolio -->
         <section class="portfolio-prod" id="portfolio">
             <div class="portfolio-section">
-                <h3>SHORT FORM CONTENT</h3>
+                <h3>Short Form Content</h3>
                 <div class="video-grid short-form">
                     <div class="video-thumb">
                         <video controls preload="metadata">
@@ -624,7 +660,7 @@
                 </div>
             </div>
             <div class="portfolio-section">
-                <h3>LONG FORM CONTENT</h3>
+                <h3>Long Form Content</h3>
                 <div class="video-grid long-form">
                     <div class="video-thumb">
                         <video controls preload="metadata">
