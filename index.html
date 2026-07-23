@@ -170,7 +170,7 @@
             font-size: 1.25rem;
             color: #999;
             margin-bottom: 48px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -411,45 +411,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s;
             position: relative;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .video-thumb::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);
-            pointer-events: none;
-        }
-
-        .video-thumb:hover {
-            transform: scale(1.02);
-        }
-
-        .play-btn {
-            width: 64px;
-            height: 64px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 24px;
-            padding-left: 6px;
-            z-index: 2;
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .video-thumb:hover .play-btn {
-            transform: scale(1.1);
-            background: var(--primary-blue);
+        .video-thumb video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            outline: none;
         }
 
         .short-form .video-thumb {
@@ -498,11 +470,11 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <img src="logo-pixelwright.png" alt="Pixelwright Logo" class="logo">
+            <img src="logo.png" alt="Pixelwright Logo" class="logo">
             <div class="toggle-container" id="themeToggle" data-active="main">
                 <div class="toggle-bg"></div>
-                <div class="toggle-option active" data-theme="main">Pixelwright Main</div>
-                <div class="toggle-option" data-theme="prod">Productions</div>
+                <div class="toggle-option active" data-theme="main">Pixelwright</div>
+                <div class="toggle-option" data-theme="prod">Pixelwright Production</div>
             </div>
         </div>
     </nav>
@@ -511,8 +483,8 @@
     <main id="mainContainer" class="view-container">
         <!-- Hero Section -->
         <section class="hero-main">
-            <h1>We Build Funnels That <span class="highlight">Print Money</span> for Mumbai Real Estate.</h1>
-            <p>Aggressive, high-converting systems designed specifically to fill your pipeline with qualified property buyers.</p>
+            <h1>We Build High-Converting Funnels That <span class="highlight">Scale Your Business</span>.</h1>
+            <p>Aggressive, high-performance systems engineered to dominate your market, generate qualified leads, and maximize your ROI for elite digital growth.</p>
             <a href="#" class="cta-glowing">Start Your Lead Generation</a>
         </section>
 
@@ -571,19 +543,59 @@
             <div class="portfolio-section">
                 <h3>SHORT FORM STYLES</h3>
                 <div class="video-grid short-form">
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
             <div class="portfolio-section">
                 <h3>LONG FORM STYLES</h3>
                 <div class="video-grid long-form">
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
-                    <div class="video-thumb"><div class="play-btn">▶</div></div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-thumb">
+                        <video controls preload="metadata">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
         </section>
@@ -617,6 +629,14 @@
                     // 2. Identify Outgoing and Incoming Views
                     const viewOut = theme === 'main' ? prodView : mainView;
                     const viewIn = theme === 'main' ? mainView : prodView;
+
+                    // Pause any playing videos in the outgoing view
+                    const outgoingVideos = viewOut.querySelectorAll('video');
+                    outgoingVideos.forEach(video => {
+                        if (!video.paused) {
+                            video.pause();
+                        }
+                    });
 
                     // 3. Switch Body Theme (Handles colors & backgrounds)
                     body.className = theme === 'main' ? 'theme-dark' : 'theme-light';
